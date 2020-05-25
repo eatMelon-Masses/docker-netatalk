@@ -7,7 +7,7 @@ An container serving [Apple Filing Protocol](https://en.wikipedia.org/wiki/Apple
 To quickly get started with running an [Netatalk] container first you can run the following command:
 
 ```bash
-docker run --detach --publish 548:548 cptactionhank/netatalk:latest
+docker run  --env AVAHI=1 --env AFP_USER=bakeup --env AFP_PASSWORD=zy199678  --net=host  --detach -v /home/data/backup/:/media/timemachine -v /home/docker/docker-netatalk/afp.conf:/etc/afp.conf   --publish 548:548 --name timemachine cptactionhank/netatalk:latest
 ```
 
 **Important:** This does not announce the AFP service on the network; connecting to the server should be performed by Finder's `Go -> Connect Server (CMD+K)` and then typing `afp://[docker_host]`.
